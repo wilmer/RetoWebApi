@@ -31,7 +31,7 @@ Este proyecto es un trabajo para crear una Web Api usando NetCore y Carter con u
 
 # Inicio
 
-The easiest way to get started is using Visual Studio 2022 y Base de datos Sql Server.
+Se necesita Visual Studio 2022 y Base de datos Sql Server.
 
 # Database Migrations
 
