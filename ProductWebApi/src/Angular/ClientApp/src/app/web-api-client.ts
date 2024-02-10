@@ -16,10 +16,11 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IClient {
+    getProductsById(productId: number): Observable<GetProductsResponseById[]>;
+    deleteProduct(productId: number): Observable<void>;
     getProducts(): Observable<GetProductsResponse[]>;
     createProduct(command: CreateProductCommand): Observable<void>;
     updateProduct(command: UpdateProductCommand): Observable<void>;
-    deleteProduct(productId: number): Observable<void>;
     getCategories(): Observable<GetCategoriesResponse[]>;
 }
 
@@ -34,6 +35,115 @@ export class Client implements IClient {
     constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
         this.baseUrl = baseUrl ?? "";
+    }
+
+    getProductsById(productId: number): Observable<GetProductsResponseById[]> {
+        let url_ = this.baseUrl + "/api/products/{productId}";
+        if (productId === undefined || productId === null)
+            throw new Error("The parameter 'productId' must be defined.");
+        url_ = url_.replace("{productId}", encodeURIComponent("" + productId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetProductsById(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetProductsById(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<GetProductsResponseById[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<GetProductsResponseById[]>;
+        }));
+    }
+
+    protected processGetProductsById(response: HttpResponseBase): Observable<GetProductsResponseById[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(GetProductsResponseById.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<GetProductsResponseById[]>(null as any);
+    }
+
+    deleteProduct(productId: number): Observable<void> {
+        let url_ = this.baseUrl + "/api/products/{productId}";
+        if (productId === undefined || productId === null)
+            throw new Error("The parameter 'productId' must be defined.");
+        url_ = url_.replace("{productId}", encodeURIComponent("" + productId));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDeleteProduct(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDeleteProduct(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processDeleteProduct(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(null as any);
+            }));
+        } else if (status === 404) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server side error occurred.", status, _responseText, _headers);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(null as any);
     }
 
     getProducts(): Observable<GetProductsResponse[]> {
@@ -201,57 +311,6 @@ export class Client implements IClient {
         return _observableOf<void>(null as any);
     }
 
-    deleteProduct(productId: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/products/{productId}";
-        if (productId === undefined || productId === null)
-            throw new Error("The parameter 'productId' must be defined.");
-        url_ = url_.replace("{productId}", encodeURIComponent("" + productId));
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-            })
-        };
-
-        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processDeleteProduct(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processDeleteProduct(response_ as any);
-                } catch (e) {
-                    return _observableThrow(e) as any as Observable<void>;
-                }
-            } else
-                return _observableThrow(response_) as any as Observable<void>;
-        }));
-    }
-
-    protected processDeleteProduct(response: HttpResponseBase): Observable<void> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (response as any).error instanceof Blob ? (response as any).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return _observableOf<void>(null as any);
-            }));
-        } else if (status === 404) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server side error occurred.", status, _responseText, _headers);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<void>(null as any);
-    }
-
     getCategories(): Observable<GetCategoriesResponse[]> {
         let url_ = this.baseUrl + "/api/categories";
         url_ = url_.replace(/[?&]$/, "");
@@ -306,6 +365,74 @@ export class Client implements IClient {
         }
         return _observableOf<GetCategoriesResponse[]>(null as any);
     }
+}
+
+export class GetProductsResponseById implements IGetProductsResponseById {
+    productId?: number;
+    name?: string;
+    statusName?: string;
+    stock?: number;
+    description?: string;
+    price?: number;
+    discount?: number;
+    finalPrice?: number;
+    categoryName?: string;
+
+    constructor(data?: IGetProductsResponseById) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.productId = _data["ProductId"];
+            this.name = _data["Name"];
+            this.statusName = _data["StatusName"];
+            this.stock = _data["Stock"];
+            this.description = _data["Description"];
+            this.price = _data["Price"];
+            this.discount = _data["Discount"];
+            this.finalPrice = _data["FinalPrice"];
+            this.categoryName = _data["CategoryName"];
+        }
+    }
+
+    static fromJS(data: any): GetProductsResponseById {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetProductsResponseById();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["ProductId"] = this.productId;
+        data["Name"] = this.name;
+        data["StatusName"] = this.statusName;
+        data["Stock"] = this.stock;
+        data["Description"] = this.description;
+        data["Price"] = this.price;
+        data["Discount"] = this.discount;
+        data["FinalPrice"] = this.finalPrice;
+        data["CategoryName"] = this.categoryName;
+        return data;
+    }
+}
+
+export interface IGetProductsResponseById {
+    productId?: number;
+    name?: string;
+    statusName?: string;
+    stock?: number;
+    description?: string;
+    price?: number;
+    discount?: number;
+    finalPrice?: number;
+    categoryName?: string;
 }
 
 export class GetProductsResponse implements IGetProductsResponse {

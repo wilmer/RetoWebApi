@@ -6,6 +6,67 @@
     "version": "v1"
   },
   "paths": {
+    "/api/products/{productId}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "GetProductsById",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetProductsResponseById"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "DeleteProduct",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/products": {
       "get": {
         "tags": [
@@ -95,34 +156,6 @@
         }
       }
     },
-    "/api/products/{productId}": {
-      "delete": {
-        "tags": [
-          "Product"
-        ],
-        "operationId": "DeleteProduct",
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/api/categories": {
       "get": {
         "tags": [
@@ -149,6 +182,44 @@
   },
   "components": {
     "schemas": {
+      "GetProductsResponseById": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ProductId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "StatusName": {
+            "type": "string"
+          },
+          "Stock": {
+            "type": "number",
+            "format": "double"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Price": {
+            "type": "number",
+            "format": "double"
+          },
+          "Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "FinalPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "CategoryName": {
+            "type": "string"
+          }
+        }
+      },
       "GetProductsResponse": {
         "type": "object",
         "additionalProperties": false,
