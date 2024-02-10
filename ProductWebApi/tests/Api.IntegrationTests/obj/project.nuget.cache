@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "16AGgnTbn0ab1kbEF6YadIAhXXQGCFel8GNNPF0On4XZU4xqM5yqjgGaxMEIrXdtq1lPKLiPifjNwHozZBkkPg==",
+  "dgSpecHash": "uz11Rxagh3S59TAY0zzakrtz843n/moG7REGAkCzBeJQaGtBgT+VO9qQZ3+3ls3+LFz0cOR3mjzeYU0CDaSEMg==",
   "success": true,
   "projectFilePath": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\tests\\Api.IntegrationTests\\Api.IntegrationTests.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,8 @@
     "C:\\Users\\HP\\.nuget\\packages\\fluentassertions\\6.8.0\\fluentassertions.6.8.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.3.0\\fluentvalidation.dependencyinjectionextensions.11.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\lazycache\\2.4.0\\lazycache.2.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\lazycache.aspnetcore\\2.4.0\\lazycache.aspnetcore.2.4.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mediatr\\12.0.0\\mediatr.12.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mediatr.contracts\\2.0.0\\mediatr.contracts.2.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\8.0.0\\microsoft.aspnetcore.mvc.testing.8.0.0.nupkg.sha512",

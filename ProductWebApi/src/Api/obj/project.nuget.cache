@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qz4kQbST5cIuPTNWf5ciReGEZadancrm+YATe8uP+eMGQpHwwysrIN/B/ZmRqtyzATf1/V+tgKmY1CYwpiRWOA==",
+  "dgSpecHash": "BKJeJUctS0zuA2ln2w8xulwNj1/A/iPvGQwTWiwv3KZex+83p2S4B/O8ngKGTZwEcPczVxyESItzxr59Mx7vPA==",
   "success": true,
   "projectFilePath": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,8 @@
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.3.0\\fluentvalidation.dependencyinjectionextensions.11.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\lazycache\\2.4.0\\lazycache.2.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\lazycache.aspnetcore\\2.4.0\\lazycache.aspnetcore.2.4.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mediatr\\12.0.0\\mediatr.12.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mediatr.contracts\\2.0.0\\mediatr.contracts.2.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

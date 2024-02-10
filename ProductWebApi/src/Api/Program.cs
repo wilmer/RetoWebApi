@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.AddSerilog();
 
+builder.Services.AddLazyCache();
+
 builder.Services.AddWebApiConfig();
 builder.Services.AddApplicationCore();
 builder.Services.AddPersistence(builder.Configuration);
