@@ -26,3 +26,4 @@ D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\src\Appli
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\src\Application\obj\Debug\net8.0\Application.pdb
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\src\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\src\Application\obj\Debug\net8.0\ref\Application.dll
+D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\src\Application\obj\Debug\net8.0\Application.sourcelink.json

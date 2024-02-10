@@ -160,10 +160,25 @@
           "Name": {
             "type": "string"
           },
+          "StatusName": {
+            "type": "string"
+          },
+          "Stock": {
+            "type": "number",
+            "format": "double"
+          },
           "Description": {
             "type": "string"
           },
           "Price": {
+            "type": "number",
+            "format": "double"
+          },
+          "Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "FinalPrice": {
             "type": "number",
             "format": "double"
           },
@@ -232,10 +247,25 @@
           "Name": {
             "type": "string"
           },
+          "StatusName": {
+            "type": "string"
+          },
+          "Stock": {
+            "type": "number",
+            "format": "double"
+          },
           "Description": {
             "type": "string"
           },
           "Price": {
+            "type": "number",
+            "format": "double"
+          },
+          "Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "FinalPrice": {
             "type": "number",
             "format": "double"
           },
@@ -257,11 +287,27 @@
             "type": "string",
             "nullable": true
           },
+          "StatusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Stock": {
+            "type": "number",
+            "format": "double"
+          },
           "Description": {
             "type": "string",
             "nullable": true
           },
           "Price": {
+            "type": "number",
+            "format": "double"
+          },
+          "Discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "FinalPrice": {
             "type": "number",
             "format": "double"
           },

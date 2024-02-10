@@ -632,8 +632,12 @@ namespace ProductWebApi.Api
     {
         private int _productId;
         private string _name;
+        private string _statusName;
+        private double _stock;
         private string _description;
         private double _price;
+        private double _discount;
+        private double _finalPrice;
         private string _categoryName;
 
         [Newtonsoft.Json.JsonProperty("ProductId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -666,6 +670,36 @@ namespace ProductWebApi.Api
             }
         }
 
+        [Newtonsoft.Json.JsonProperty("StatusName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StatusName
+        {
+            get { return _statusName; }
+
+            set
+            {
+                if (_statusName != value)
+                {
+                    _statusName = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Stock", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Stock
+        {
+            get { return _stock; }
+
+            set
+            {
+                if (_stock != value)
+                {
+                    _stock = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description
         {
@@ -691,6 +725,36 @@ namespace ProductWebApi.Api
                 if (_price != value)
                 {
                     _price = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Discount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Discount
+        {
+            get { return _discount; }
+
+            set
+            {
+                if (_discount != value)
+                {
+                    _discount = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("FinalPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double FinalPrice
+        {
+            get { return _finalPrice; }
+
+            set
+            {
+                if (_finalPrice != value)
+                {
+                    _finalPrice = value;
                     RaisePropertyChanged();
                 }
             }
@@ -889,8 +953,12 @@ namespace ProductWebApi.Api
     public partial class CreateProductCommand : System.ComponentModel.INotifyPropertyChanged
     {
         private string _name;
+        private string _statusName;
+        private double _stock;
         private string _description;
         private double _price;
+        private double _discount;
+        private double _finalPrice;
         private int _categoryId;
 
         [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -903,6 +971,36 @@ namespace ProductWebApi.Api
                 if (_name != value)
                 {
                     _name = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("StatusName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StatusName
+        {
+            get { return _statusName; }
+
+            set
+            {
+                if (_statusName != value)
+                {
+                    _statusName = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Stock", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Stock
+        {
+            get { return _stock; }
+
+            set
+            {
+                if (_stock != value)
+                {
+                    _stock = value;
                     RaisePropertyChanged();
                 }
             }
@@ -933,6 +1031,36 @@ namespace ProductWebApi.Api
                 if (_price != value)
                 {
                     _price = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Discount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Discount
+        {
+            get { return _discount; }
+
+            set
+            {
+                if (_discount != value)
+                {
+                    _discount = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("FinalPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double FinalPrice
+        {
+            get { return _finalPrice; }
+
+            set
+            {
+                if (_finalPrice != value)
+                {
+                    _finalPrice = value;
                     RaisePropertyChanged();
                 }
             }
@@ -981,8 +1109,12 @@ namespace ProductWebApi.Api
     {
         private int _productId;
         private string _name;
+        private string _statusName;
+        private double _stock;
         private string _description;
         private double _price;
+        private double _discount;
+        private double _finalPrice;
         private int _categoryId;
 
         [Newtonsoft.Json.JsonProperty("ProductId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1015,6 +1147,36 @@ namespace ProductWebApi.Api
             }
         }
 
+        [Newtonsoft.Json.JsonProperty("StatusName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StatusName
+        {
+            get { return _statusName; }
+
+            set
+            {
+                if (_statusName != value)
+                {
+                    _statusName = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Stock", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Stock
+        {
+            get { return _stock; }
+
+            set
+            {
+                if (_stock != value)
+                {
+                    _stock = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description
         {
@@ -1040,6 +1202,36 @@ namespace ProductWebApi.Api
                 if (_price != value)
                 {
                     _price = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("Discount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Discount
+        {
+            get { return _discount; }
+
+            set
+            {
+                if (_discount != value)
+                {
+                    _discount = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("FinalPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double FinalPrice
+        {
+            get { return _finalPrice; }
+
+            set
+            {
+                if (_finalPrice != value)
+                {
+                    _finalPrice = value;
                     RaisePropertyChanged();
                 }
             }

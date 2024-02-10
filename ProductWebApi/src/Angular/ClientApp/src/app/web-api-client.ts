@@ -311,8 +311,12 @@ export class Client implements IClient {
 export class GetProductsResponse implements IGetProductsResponse {
     productId?: number;
     name?: string;
+    statusName?: string;
+    stock?: number;
     description?: string;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryName?: string;
 
     constructor(data?: IGetProductsResponse) {
@@ -328,8 +332,12 @@ export class GetProductsResponse implements IGetProductsResponse {
         if (_data) {
             this.productId = _data["ProductId"];
             this.name = _data["Name"];
+            this.statusName = _data["StatusName"];
+            this.stock = _data["Stock"];
             this.description = _data["Description"];
             this.price = _data["Price"];
+            this.discount = _data["Discount"];
+            this.finalPrice = _data["FinalPrice"];
             this.categoryName = _data["CategoryName"];
         }
     }
@@ -345,8 +353,12 @@ export class GetProductsResponse implements IGetProductsResponse {
         data = typeof data === 'object' ? data : {};
         data["ProductId"] = this.productId;
         data["Name"] = this.name;
+        data["StatusName"] = this.statusName;
+        data["Stock"] = this.stock;
         data["Description"] = this.description;
         data["Price"] = this.price;
+        data["Discount"] = this.discount;
+        data["FinalPrice"] = this.finalPrice;
         data["CategoryName"] = this.categoryName;
         return data;
     }
@@ -355,8 +367,12 @@ export class GetProductsResponse implements IGetProductsResponse {
 export interface IGetProductsResponse {
     productId?: number;
     name?: string;
+    statusName?: string;
+    stock?: number;
     description?: string;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryName?: string;
 }
 
@@ -483,8 +499,12 @@ export interface IHttpValidationProblemDetails extends IProblemDetails {
 
 export class CreateProductCommand implements ICreateProductCommand {
     name?: string;
+    statusName?: string;
+    stock?: number;
     description?: string;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryId?: number;
 
     constructor(data?: ICreateProductCommand) {
@@ -499,8 +519,12 @@ export class CreateProductCommand implements ICreateProductCommand {
     init(_data?: any) {
         if (_data) {
             this.name = _data["Name"];
+            this.statusName = _data["StatusName"];
+            this.stock = _data["Stock"];
             this.description = _data["Description"];
             this.price = _data["Price"];
+            this.discount = _data["Discount"];
+            this.finalPrice = _data["FinalPrice"];
             this.categoryId = _data["CategoryId"];
         }
     }
@@ -515,8 +539,12 @@ export class CreateProductCommand implements ICreateProductCommand {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["Name"] = this.name;
+        data["StatusName"] = this.statusName;
+        data["Stock"] = this.stock;
         data["Description"] = this.description;
         data["Price"] = this.price;
+        data["Discount"] = this.discount;
+        data["FinalPrice"] = this.finalPrice;
         data["CategoryId"] = this.categoryId;
         return data;
     }
@@ -524,16 +552,24 @@ export class CreateProductCommand implements ICreateProductCommand {
 
 export interface ICreateProductCommand {
     name?: string;
+    statusName?: string;
+    stock?: number;
     description?: string;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryId?: number;
 }
 
 export class UpdateProductCommand implements IUpdateProductCommand {
     productId?: number;
     name?: string | undefined;
+    statusName?: string | undefined;
+    stock?: number;
     description?: string | undefined;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryId?: number;
 
     constructor(data?: IUpdateProductCommand) {
@@ -549,8 +585,12 @@ export class UpdateProductCommand implements IUpdateProductCommand {
         if (_data) {
             this.productId = _data["ProductId"];
             this.name = _data["Name"];
+            this.statusName = _data["StatusName"];
+            this.stock = _data["Stock"];
             this.description = _data["Description"];
             this.price = _data["Price"];
+            this.discount = _data["Discount"];
+            this.finalPrice = _data["FinalPrice"];
             this.categoryId = _data["CategoryId"];
         }
     }
@@ -566,8 +606,12 @@ export class UpdateProductCommand implements IUpdateProductCommand {
         data = typeof data === 'object' ? data : {};
         data["ProductId"] = this.productId;
         data["Name"] = this.name;
+        data["StatusName"] = this.statusName;
+        data["Stock"] = this.stock;
         data["Description"] = this.description;
         data["Price"] = this.price;
+        data["Discount"] = this.discount;
+        data["FinalPrice"] = this.finalPrice;
         data["CategoryId"] = this.categoryId;
         return data;
     }
@@ -576,8 +620,12 @@ export class UpdateProductCommand implements IUpdateProductCommand {
 export interface IUpdateProductCommand {
     productId?: number;
     name?: string | undefined;
+    statusName?: string | undefined;
+    stock?: number;
     description?: string | undefined;
     price?: number;
+    discount?: number;
+    finalPrice?: number;
     categoryId?: number;
 }
 

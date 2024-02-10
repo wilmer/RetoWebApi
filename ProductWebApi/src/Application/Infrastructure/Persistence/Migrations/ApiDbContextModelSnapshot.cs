@@ -59,7 +59,7 @@ namespace ProductWebApi.Application.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("StatusName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<double>("Stock")
                         .IsRequired()

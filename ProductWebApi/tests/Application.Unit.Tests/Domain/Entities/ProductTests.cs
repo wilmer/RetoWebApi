@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using MinimalApiArchitecture.Application.Domain.Entities;
-using MinimalApiArchitecture.Application.Features.Products.Commands;
+using ProductWebApi.Application.Domain.Entities;
+using ProductWebApi.Application.Features.Products.Commands;
 using NUnit.Framework;
 
 namespace Application.Unit.Tests.Domain.Entities
@@ -12,13 +12,17 @@ namespace Application.Unit.Tests.Domain.Entities
         public void ProductPriceChanged(double price, int eventsCount)
         {
             // Arrenge
-            var product = new Product(1, "Name 1", "Description 1", 1, 1);
+            var product = new Product(1, "Name 1", "1", 5,"Description 1", 1, 1,1,1);
             var command = new UpdateProduct.UpdateProductCommand
             {
                 CategoryId = 1,
                 Description = "New description",
                 Name = "New name",
-                Price = price
+                StatusName="1",
+                Stock=5,
+                Price = price,
+                Discount=1,
+                FinalPrice=1
             };
 
             // Act

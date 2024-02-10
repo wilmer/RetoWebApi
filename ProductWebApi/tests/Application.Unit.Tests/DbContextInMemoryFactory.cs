@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MinimalApiArchitecture.Application.Infrastructure.Persistence;
+using ProductWebApi.Application.Infrastructure.Persistence;
 using Moq;
 
 namespace Application.Unit.Tests;

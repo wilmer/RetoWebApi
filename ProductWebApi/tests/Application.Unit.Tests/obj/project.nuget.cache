@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nOthx13CweyLTL4ZEghWMLfcq1XN0FvgUB3jAHpLvFSMpbW4TDPmWn+HgHt9EyOx27AKSWcmV6OH8QZvGOV7aA==",
+  "dgSpecHash": "hViT63XxwfA3zzPN5z9PgQw0x6VDp+F1EXS2q+YwV3WAPAZYbxyKgugJuyjZ1rkk9/hS6qfBKjAOcRXkkajbNg==",
   "success": true,
-  "projectFilePath": "D:\\2023\\Desarrollo_Software\\MinimalApiArchitecture-master\\MinimalApiArchitecture-master\\tests\\Application.Unit.Tests\\Application.Unit.Tests.csproj",
+  "projectFilePath": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\tests\\Application.Unit.Tests\\Application.Unit.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

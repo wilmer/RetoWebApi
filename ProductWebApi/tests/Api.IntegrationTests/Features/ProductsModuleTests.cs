@@ -44,7 +44,11 @@ public class ProductsModuleTests : TestBase
         {
             Description = $"Test product description",
             Name = "Test name",
+            StatusName = "1",
+            Stock=123,
             Price = 123456,
+            Discount=23.45,
+            FinalPrice=23.55,
             CategoryId = testCategory.CategoryId,
         });
 
@@ -67,8 +71,12 @@ public class ProductsModuleTests : TestBase
         {
             Description = "Updated Desc for ID 1",
             Name = "Updated name for ID 1",
+            StatusName="0",
+            Stock=23,
             Price = 999,
             ProductId = product1.ProductId,
+            Discount=23.44,
+            FinalPrice=456,
             CategoryId = product1.CategoryId
         });
 

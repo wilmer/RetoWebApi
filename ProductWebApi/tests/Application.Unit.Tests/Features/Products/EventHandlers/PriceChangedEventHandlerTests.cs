@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using MinimalApiArchitecture.Application.Domain.Entities;
-using MinimalApiArchitecture.Application.Domain.Events;
-using MinimalApiArchitecture.Application.Features.Products.EventHandlers;
+using ProductWebApi.Application.Domain.Entities;
+using ProductWebApi.Application.Domain.Events;
+using ProductWebApi.Application.Features.Products.EventHandlers;
 using Moq;
 using NUnit.Framework;
 using System.Threading;

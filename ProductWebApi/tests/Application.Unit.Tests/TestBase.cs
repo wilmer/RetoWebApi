@@ -1,4 +1,4 @@
-﻿using MinimalApiArchitecture.Application.Infrastructure.Persistence;
+﻿using ProductWebApi.Application.Infrastructure.Persistence;
 using NUnit.Framework;
 using System.Threading.Tasks;
 

@@ -970,3 +970,4 @@ D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\tests\Api
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\tests\Api.IntegrationTests\obj\Debug\net8.0\Api.IntegrationTests.pdb
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\tests\Api.IntegrationTests\obj\Debug\net8.0\Api.IntegrationTests.genruntimeconfig.cache
 D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\tests\Api.IntegrationTests\obj\Debug\net8.0\ref\Api.IntegrationTests.dll
+D:\2023\Desarrollo_Software\Proyectos\GitHub2\RetoWebApi\ProductWebApi\tests\Api.IntegrationTests\obj\Debug\net8.0\Api.IntegrationTests.sourcelink.json
