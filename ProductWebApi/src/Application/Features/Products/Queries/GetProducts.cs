@@ -45,5 +45,5 @@ public class GetProducts : ICarterModule
             );
     }
 
-    public record GetProductsResponse(int ProductId, string Name, string Description, double Price, string CategoryName);
+    public record GetProductsResponse(int ProductId, string Name, string StatusName,double Stock,string Description, double Price, double Discount, double FinalPrice,string CategoryName);
 }

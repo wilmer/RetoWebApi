@@ -15,7 +15,7 @@ public static class DependencyConfig
         services.AddEndpointsApiExplorer();
         services.AddOpenApiDocument(c =>
         {
-            c.Title = "Minimal APIs";
+            c.Title = "Product Web APIs";
             c.Version = "v1";
         });
 

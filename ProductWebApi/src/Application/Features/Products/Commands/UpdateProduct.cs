@@ -28,8 +28,12 @@ public class UpdateProduct : ICarterModule
     {
         public int ProductId { get; set; }
         public string? Name { get; set; }
+        public string? StatusName { get; set; }
+        public double Stock { get; set; }
         public string? Description { get; set; }
         public double Price { get; set; }
+        public double Discount { get; set; }
+        public double FinalPrice { get; set; }
         public int CategoryId { get; set; }
     }
 
@@ -65,8 +69,12 @@ public class UpdateProduct : ICarterModule
         {
             RuleFor(r => r.ProductId).NotEmpty();
             RuleFor(r => r.Name).NotEmpty();
+            RuleFor(r => r.StatusName).NotEmpty();
+            RuleFor(r => r.Stock).NotEmpty();
             RuleFor(r => r.Description).NotEmpty();
             RuleFor(r => r.Price).NotEmpty();
+            RuleFor(r => r.Discount).NotEmpty();
+            RuleFor(r => r.FinalPrice).NotEmpty();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ProductWebApi.Application.Features.Products.EventHandlers
     {
         public Task Handle(ProductUpdatePriceEvent notification, CancellationToken cancellationToken)
         {
-            logger.LogWarning("Minimal APIs Domain Event: {DomainEvent}", notification.GetType().Name);
+            logger.LogWarning("Product Web APIs Domain Event: {DomainEvent}", notification.GetType().Name);
 
             return Task.CompletedTask;
         }

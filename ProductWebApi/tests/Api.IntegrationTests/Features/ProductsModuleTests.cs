@@ -18,8 +18,8 @@ public class ProductsModuleTests : TestBase
     {
         // Arrenge
         var testCategory = await AddAsync(new Category(0, "Category Test"));
-        await AddAsync(new Product(0, "Test 01", "Desc 01", 1, testCategory.CategoryId));
-        await AddAsync(new Product(0, "Test 02", "Desc 02", 2, testCategory.CategoryId));
+        await AddAsync(new Product(0, "Test 01", "1", 20,"Desc 01", 1,2.5,17.5, testCategory.CategoryId));
+        await AddAsync(new Product(0, "Test 02", "1",45,"Desc 02", 2, 0.5,44.5,testCategory.CategoryId));
 
         var client = Application.CreateClient();
 
@@ -57,8 +57,8 @@ public class ProductsModuleTests : TestBase
     {
         // Arrenge
         var testCategory = await AddAsync(new Category(0, "Category Test"));
-        var product1 = await AddAsync(new Product(0, "Test 01", "Desc 01", 1, testCategory.CategoryId));
-        await AddAsync(new Product(0, "Test 02", "Desc 02", 2, testCategory.CategoryId));
+        var product1 = await AddAsync(new Product(0, "Test 01","1",20,"Desc 01", 1, 0,20 ,testCategory.CategoryId));
+        await AddAsync(new Product(0,"Test 02", "0",23,"Desc 02", 2, 0, 46, testCategory.CategoryId));
 
         var client = Application.CreateClient();
 
@@ -87,7 +87,7 @@ public class ProductsModuleTests : TestBase
     {
         // Arrenge
         var testCategory = await AddAsync(new Category(0, "Category Test"));
-        var product1 = await AddAsync(new Product(0, "Test 01", "Desc 01", 1, testCategory.CategoryId));
+        var product1 = await AddAsync(new Product(0, "Test 01", "1",23,"Desc 01", 1, 0,1,testCategory.CategoryId));
 
         var client = Application.CreateClient();
 

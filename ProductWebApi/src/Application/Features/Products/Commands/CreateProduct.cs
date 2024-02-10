@@ -27,8 +27,12 @@ public class CreateProduct : ICarterModule
     public class CreateProductCommand : IRequest<IResult>
     {
         public string Name { get; set; } = string.Empty;
+        public string StatusName { get; set; } = string.Empty;
+        public double Stock { get; set; }
         public string Description { get; set; } = string.Empty;
         public double Price { get; set; }
+        public double Discount { get; set; }
+        public double FinalPrice { get; set; }
         public int CategoryId { get; set; }
     }
 
@@ -43,7 +47,7 @@ public class CreateProduct : ICarterModule
                 return Results.ValidationProblem(result.GetValidationProblems());
             }
 
-            var newProduct = new Product(0, request.Name, request.Description, request.Price, request.CategoryId);
+            var newProduct = new Product(0, request.Name, request.StatusName , request.Stock,request.Description, request.Price,request.Discount, request.FinalPrice , request.CategoryId);
 
             context.Products.Add(newProduct);
 
@@ -58,8 +62,12 @@ public class CreateProduct : ICarterModule
         public CreateProductValidator()
         {
             RuleFor(r => r.Name).NotEmpty();
+            RuleFor(r => r.StatusName).NotEmpty();
+            RuleFor(r => r.Stock).NotEmpty();
             RuleFor(r => r.Description).NotEmpty();
             RuleFor(r => r.Price).NotEmpty();
+            RuleFor(r => r.Discount).NotEmpty();
+            RuleFor(r => r.FinalPrice).NotEmpty();
         }
     }
 }

@@ -12,7 +12,7 @@ public class LoggingBehaviour<TRequest>(ILogger<TRequest> logger) : IRequestPreP
     {
         var requestName = typeof(TRequest).Name;
 
-        _logger.LogInformation("Minimal API Request: {Name} {@Request}", requestName, request);
+        _logger.LogInformation("Product Web API Request: {Name} {@Request}", requestName, request);
 
         return Task.CompletedTask;
     }

@@ -16,8 +16,12 @@ namespace ProductWebApi.Application.Infrastructure.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StatusName = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    Stock = table.Column<double>(type: "float", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Discount = table.Column<double>(type: "float", nullable: false),
+                    FinalPrice = table.Column<double>(type: "float", nullable: false),
                 },
                 constraints: table =>
                 {

@@ -57,7 +57,21 @@ namespace ProductWebApi.Application.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<double>("Stock")
+                        .IsRequired()
+                        .HasColumnType("float");
+
                     b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("FinalPrice")
                         .HasColumnType("float");
 
                     b.HasKey("ProductId");
