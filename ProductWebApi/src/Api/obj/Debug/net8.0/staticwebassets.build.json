@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "w7YmALWWQBJ9moMjr5+VC3TuCbLZpevVsgPg9KdBqNM=",
+  "Source": "Api",
+  "BasePath": "_content/Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Api\\wwwroot",
+      "Source": "Api",
+      "ContentRoot": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\src\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\src\\Api\\wwwroot\\api\\specification.json",
+      "SourceId": "Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2023\\Desarrollo_Software\\Proyectos\\GitHub2\\RetoWebApi\\ProductWebApi\\src\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "RelativePath": "api/specification.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\api\\specification.json"
+    }
+  ]
+}

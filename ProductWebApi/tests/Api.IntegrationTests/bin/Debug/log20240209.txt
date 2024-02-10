@@ -1,0 +1,150 @@
+2024-02-09 20:54:45.708 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-09 20:54:45.746 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-09 20:54:45.748 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-02-09 20:54:45.748 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-02-09 20:54:45.760 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-02-09 20:54:45.769 -05:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-09 20:54:45.959 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Name])
+OUTPUT INSERTED.[CategoryId]
+VALUES (@p0);
+2024-02-09 20:54:46.014 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost/api/products - application/json; charset=utf-8 91
+2024-02-09 20:54:46.051 -05:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-02-09 20:54:46.098 -05:00 [INF] A new transaction was created with ID "381ec59a-b9ec-46f4-bef1-57cdf8eb4977"
+2024-02-09 20:54:46.101 -05:00 [INF] Minimal API Request: CreateProductCommand {"Name":"Test name","Description":"Test product description","Price":123456,"CategoryId":7,"$type":"CreateProductCommand"}
+2024-02-09 20:54:46.140 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.144 -05:00 [INF] Commiting Transaction "381ec59a-b9ec-46f4-bef1-57cdf8eb4977"
+2024-02-09 20:54:46.149 -05:00 [INF] Setting HTTP status code 201.
+2024-02-09 20:54:46.149 -05:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-02-09 20:54:46.154 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost/api/products - 201 null null 140.4117ms
+2024-02-09 20:54:46.164 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Name])
+OUTPUT INSERTED.[CategoryId]
+VALUES (@p0);
+2024-02-09 20:54:46.166 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.167 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost/api/products/10 - null null
+2024-02-09 20:54:46.168 -05:00 [INF] Executing endpoint 'HTTP: DELETE api/products/{productId}'
+2024-02-09 20:54:46.173 -05:00 [INF] A new transaction was created with ID "0118044f-aff3-4064-b19d-575c6dd0d923"
+2024-02-09 20:54:46.173 -05:00 [INF] Minimal API Request: DeleteProductCommand {"ProductId":10,"$type":"DeleteProductCommand"}
+2024-02-09 20:54:46.317 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[ProductId] = @__p_0
+2024-02-09 20:54:46.324 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [ProductId] = @p0;
+2024-02-09 20:54:46.327 -05:00 [INF] Commiting Transaction "0118044f-aff3-4064-b19d-575c6dd0d923"
+2024-02-09 20:54:46.328 -05:00 [INF] Setting HTTP status code 200.
+2024-02-09 20:54:46.328 -05:00 [INF] Executed endpoint 'HTTP: DELETE api/products/{productId}'
+2024-02-09 20:54:46.328 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost/api/products/10 - 200 null null 161.0209ms
+2024-02-09 20:54:46.332 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[ProductId] = @__p_0
+2024-02-09 20:54:46.339 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost/api/products/0 - null null
+2024-02-09 20:54:46.339 -05:00 [INF] Executing endpoint 'HTTP: DELETE api/products/{productId}'
+2024-02-09 20:54:46.343 -05:00 [INF] A new transaction was created with ID "e0402ead-b9f2-46dc-a9c1-730c31b6597f"
+2024-02-09 20:54:46.343 -05:00 [INF] Minimal API Request: DeleteProductCommand {"ProductId":0,"$type":"DeleteProductCommand"}
+2024-02-09 20:54:46.344 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[ProductId] = @__p_0
+2024-02-09 20:54:46.344 -05:00 [INF] Commiting Transaction "e0402ead-b9f2-46dc-a9c1-730c31b6597f"
+2024-02-09 20:54:46.344 -05:00 [INF] Setting HTTP status code 404.
+2024-02-09 20:54:46.344 -05:00 [INF] Executed endpoint 'HTTP: DELETE api/products/{productId}'
+2024-02-09 20:54:46.344 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost/api/products/0 - 404 null null 5.1688ms
+2024-02-09 20:54:46.349 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Name])
+OUTPUT INSERTED.[CategoryId]
+VALUES (@p0);
+2024-02-09 20:54:46.350 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.351 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.352 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost/api/products - null null
+2024-02-09 20:54:46.352 -05:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-02-09 20:54:46.353 -05:00 [INF] A new transaction was created with ID "57003a36-ccef-4011-9519-b6461adef1a6"
+2024-02-09 20:54:46.354 -05:00 [INF] Minimal API Request: GetProductsQuery {"$type":"GetProductsQuery"}
+2024-02-09 20:54:46.433 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProductId], [p].[Name], [p].[Description], [p].[Price], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[CategoryId]
+2024-02-09 20:54:46.434 -05:00 [INF] Commiting Transaction "57003a36-ccef-4011-9519-b6461adef1a6"
+2024-02-09 20:54:46.437 -05:00 [INF] Executed endpoint 'HTTP: GET api/products'
+2024-02-09 20:54:46.437 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost/api/products - 200 null application/json; charset=utf-8 84.7154ms
+2024-02-09 20:54:46.446 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Name])
+OUTPUT INSERTED.[CategoryId]
+VALUES (@p0);
+2024-02-09 20:54:46.448 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.449 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CategoryId], [Description], [Name], [Price])
+OUTPUT INSERTED.[ProductId]
+VALUES (@p0, @p1, @p2, @p3);
+2024-02-09 20:54:46.451 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost/api/products - application/json; charset=utf-8 113
+2024-02-09 20:54:46.451 -05:00 [INF] Executing endpoint 'HTTP: PUT api/products'
+2024-02-09 20:54:46.453 -05:00 [INF] A new transaction was created with ID "e7b320f6-851a-4f74-9892-a650632ade35"
+2024-02-09 20:54:46.453 -05:00 [INF] Minimal API Request: UpdateProductCommand {"ProductId":13,"Name":"Updated name for ID 1","Description":"Updated Desc for ID 1","Price":999,"CategoryId":10,"$type":"UpdateProductCommand"}
+2024-02-09 20:54:46.460 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[ProductId] = @__p_0
+2024-02-09 20:54:46.464 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [Description] = @p0, [Name] = @p1, [Price] = @p2
+OUTPUT 1
+WHERE [ProductId] = @p3;
+2024-02-09 20:54:46.464 -05:00 [INF] New domain event ProductUpdatePriceEvent
+2024-02-09 20:54:46.466 -05:00 [WRN] Minimal APIs Domain Event: ProductUpdatePriceEvent
+2024-02-09 20:54:46.467 -05:00 [INF] Commiting Transaction "e7b320f6-851a-4f74-9892-a650632ade35"
+2024-02-09 20:54:46.467 -05:00 [INF] Setting HTTP status code 200.
+2024-02-09 20:54:46.467 -05:00 [INF] Executed endpoint 'HTTP: PUT api/products'
+2024-02-09 20:54:46.467 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost/api/products - 200 null null 16.3112ms
+2024-02-09 20:54:46.468 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[ProductId] = @__p_0
